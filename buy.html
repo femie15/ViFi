@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs ================================================== 
+================================================== -->
+ 
+<meta charset="utf-8">
+<title>VIFI Protocol</title>
+<meta name="description" content="VIFI mvp">
+<meta name="author" content="">
+
+<!-- Mobile Specific Metas ================================================== 
+================================================== -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="shortcut icon" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<script>
+		if (window.screen.height==568) { // iPhone 4"
+		document.querySelector("meta[name=viewport]").content="width=320.1";
+		}
+    </script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- css -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="js/portfolio/photoswipe.css">
+
+<!-- Scripts -->
+<script src="todo/jq.js"></script>
+<script src="todo/jquerymobile/jquerymobile.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script> -->
+<script type="text/javascript" src="js/portfolio/klass.min.js"></script>
+<script type="text/javascript" src="js/portfolio/code.photoswipe.jquery-3.0.4.min.js"></script>
+<script src="js/slider/jquery.flexslider-min.js"></script>
+<script src="js/custom.js"></script>
+</head>
+<body>
+<div data-role="page"> 
+  
+  <!-- header -->
+  <div data-role="header" class="buttons" data-add-back-btn="true">
+    <a data-icon="arrow-l" data-iconpos="notext" href="index.html" data-prefetch data-transition="slideup">Back</a> 
+    <h2 class="pageTitle">
+      <img src="js/portfolio/images/buy.jpg" alt="Send" width="20%"/>
+    </h2>
+  </div>
+  <!--/header --> 
+  
+  <!-- banner & title -->
+  <h2 class="pageTitle"><span>Marketplace</span></h2>
+  
+  <div data-role="content" class="contact">
+    <div id="contactForm">      
+        <ul id="galleria">
+          <li>
+            <img src="js/portfolio/images/1s.png" alt="Send" />
+            <a href="contactform.html" data-prefetch data-transition="slide">
+              Buy
+            </a>
+          </li>
+          <li><img src="js/portfolio/images/2s.png" alt="Receive" /><a href="contactform.html" data-prefetch data-transition="slide">Buy</a></li>
+          <li><img src="js/portfolio/images/save.jpg" alt="Save" /><a href="save.html" data-prefetch data-transition="slide">Buy</a></li>
+          <li><img src="js/portfolio/images/buy.jpg" alt="BUY" /><a href="buy.html" data-prefetch data-transition="slide">Buy</a></li>
+        </ul>
+        
+
+      <!-- <form action="send.php" method="post" id="contact_form">
+        <div class="name">
+          <label for="name">Select Vendor</label>
+          <select name="bank" id="bank" required>
+            <option>PHCN</option>
+            <option>AIRTIME</option>
+            <option>DSTV</option>
+          </select>
+        </div>
+        <div class="name">
+          <label for="name">Amount(₦):</label>
+          <input id=name name=name type=number value="500" placeholder="2000" required />
+        </div>
+        <div id="loader">
+          <input type="submit" value="Transfer" />
+        </div>
+      </form> -->
+
+    </div>
+    <!-- end contactForm --> 
+  </div>
+  <!-- /main content --> 
+</div>
+<!-- /page -->
+</body>
+</html>

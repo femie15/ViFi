@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--<html manifest="cache.manifest">-->
+<html> 
+<head>
+	<title>ToDo!</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon-precomposed" href="to-do.png"/>
+	<meta name="viewport" content = "initial-scale = 1, maximum-scale = 1, user-scalable = no" />
+	<!--CSS-->
+	<link rel="stylesheet" href="jquerymobile/jquery.mobile-1.0.min.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+	<link rel="stylesheet" href="add-to-homescreen/style/add2home.css" type="text/css">
+	<!--JS-->
+	<script src="jquery-1.7.1.min.js"></script>
+	<script src="jquerymobile/jquery.mobile-1.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="jquery.qrcode.min.js"></script>
+
+	<script type="text/javascript">
+		//CUSTOM SETTINGS FOR ADD-TO-HOMESCREEN SCRIPT
+		var addToHomeConfig = {
+			animationIn: 'bubble',
+			animationOut: 'drop',
+			lifespan:5000,
+			expire:2,
+			touchIcon:true,
+		};
+	</script>
+	<script type="application/javascript" src="add-to-homescreen/src/add2home.js"></script>
+	<script src="app2.js"></script>
+
+</head>
+<body>
+	
+	<!--Home Page-->
+	<div id="home" data-role="page" data-theme="e">
+		<header data-role="header" data-theme="e">
+			
+				<a data-icon="home" data-iconpos="notext" href="../index.html" rel='external' data-role="button" data-iconpos="left" >Back To Dashboard</a> 	&emsp14;
+
+			<a href="#options" data-role="button" data-icon="grid" data-iconpos="left" data-transition="flip">Clear Cart</a>
+			<h1>Shop</h1>
+			<a href="#add" data-role="button" data-theme="e" data-rel="dialog" data-transition="pop" data-icon="plus" data-iconpos="right" id="hd">View Products</a>
+			<br> <center>Balance: NGN <span id="balance">0.00</span></center>
+		</header>
+		<section data-role="content">
+			<!-- <p id="instructions">Swipe an Item to mark it as unwanted</p> -->
+			<ul id="list" data-role="listview" data-inset="false" data-theme="e">
+				<!-- <li><h3>sample task</h3><p>sample task description</p></li>
+				<li><h3>sample task</h3><p>sample task description</p></li>
+				<li><h3>sample task</h3><p>sample task description</p></li> -->
+			</ul>
+		</section>	
+				<br> <br>
+				<center>
+				<div id="tt">NGN 0.00
+				</div></center>
+				<br>
+
+				<div id="pay-confirm" data-theme="b">					
+					<button class="btn-confirm" data-theme="e">Pay</button>
+				
+					<br>
+					<center>
+						<div id="output"></div>
+					</center>
+				
+				</div>
+				
+				<br> 
+
+	</div>
+	
+	<!--Add Task Page-->
+	<div id="add" data-role="page">
+		<header data-role="header"  data-theme="e">
+			<h2 data-theme="e">Add New Item</h2>
+		</header>
+		<section data-role="content">
+			<form>
+				<!-- <input type="text" id="title" required="required" name="title"/> -->
+				<h2>Pick an item you want to buy</h2>
+					
+					<select name="title" id="title" required>
+						<option value="Dress (NGN 1,000)">Dress (NGN 1,000)</option>
+						<option value="Shoe (NGN 1,000)">Shoe (NGN 1,000)</option>
+						<option value="Bracelet (NGN 1,000)">Bracelet (NGN 1,000)</option>
+						<option value="Cup (NGN 1,000)">Cup (NGN 1,000)</option>
+					  </select>
+
+				<label for="description">Delivery Address:</label>
+				<textarea id="description" name="description"></textarea>
+
+				<input type="checkbox" name="checkbox-urgent" id="checkbox-urgent" value="urgent"/>
+				<label for="checkbox-urgent">Fast Delivery Option</label>
+
+				<button type="submit" value="Add" href="#home" id="add-task" data-role="button">Add to Cart</button>
+			</form>
+		</section>
+	</div>
+	
+	<!--Options Page-->
+	<div id="options" data-role="page" data-theme="e">
+		<header data-role="header" data-theme="e">
+			<a href="#home" data-rel="back" data-icon="back">Back</a>
+			<h2>Cart</h2>
+		</header>
+		<div data-role="content">
+			<a href="#delete-confirm" data-rel="dialog" data-transition="pop" data-role="button" data-icon="delete" data-iconpos="left">Delete All Items</a>
+			<a href="#purge-confirm" data-rel="dialog" data-transition="pop" data-role="button" data-icon="refresh" data-iconpos="left">Clear Unwanted Item(s)</a>
+			<br />
+			
+		</div>
+	</div>
+	
+	<!--Confirmation page for 'Delete'-->
+	<div id="delete-confirm" data-role="page" data-theme="b">
+		<div data-role="content">
+			<h3>Clear all Items?</h3>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<button class="btn-confirm" data-theme="b">Yes</button>
+				</div>
+				<div class="ui-block-b">
+					<a href="#options" id="cancel" data-rel="back" data-role="button">No</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Confirmation page for 'Purge'-->
+	<div id="purge-confirm" data-role="page" data-theme="b">
+		<div data-role="content">
+			<h3>Clear your Cart?</h3>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<button class="btn-confirm" data-theme="b">Yes</button>
+				</div>
+				<div class="ui-block-b">
+					<a href="#options" id="cancel" data-rel="back" data-role="button">No</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		jQuery(function(){
+			jQuery('#output').qrcode("https://api.whatsapp.com/send?phone=2348024672263&text=You%20can%20do%20a%20direct%20transfer%20to%20sellers%20account%20number%20WEMA%20Bank%2070711111111");
+		})
+		</script>
+
+	<!-- <script>
+		//start
+		$.ajax({ 
+			type:"POST",
+			url:"https://fsi.ng/api/v1/fcmb/payments/b2b/transfers",
+			data: JSON.stringify({
+						  "nameEnquiryRef": "999214190218121217000001177403",
+						  "destinationInstitutionCode": "999063",
+						  "channelCode": "2",
+						  "beneficiaryAccountNumber": "0000000000",
+						  "beneficiaryAccountName": "OBIOHA O. GODDY",
+						  "beneficiaryBankVerificationNumber": "1",
+						  "beneficiaryKYCLevel": "3",
+						  "originatorAccountName": "OKUBOTE IDOWU OLUWAKEMI",
+						  "originatorAccountNumber": "0000000002",
+						  "transactionNarration": "Transfer ifo OKUBOTE",
+						  "paymentReference": "12345",
+						  "amount": "100.1",
+						  "traceId": "12345",
+						  "chargeAmount": "52.59",
+						  "platformType": "ESB"
+						}), 
+			contentType: "application/json; charset=utf-8",
+			crossDomain: true,
+			dataType: "json",
+			headers:{         
+				"x-ibm-client-id": "f",
+				"Sandbox-Key": "tSyEiEG7eWTMo8YLHkHMweEPoUkVc7Kg1634844602",
+				"Content-Type": "application/json",
+				"Accept": "application/json"      
+			  },
+			  success: function (data, status, jqXHR) {
+			  console.info(data);
+			  alert(JSON.stringify(data));// write success in " "
+			  },
+			  error: function (jqXHR, status) {
+			  // error handler
+			  console.log(jqXHR);
+			  alert('fail ' + message);
+			  }
+		}); 
+		//stop
+	</script> -->
+</body>
+</html>

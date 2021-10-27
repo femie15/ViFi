@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs ================================================== 
+================================================== -->
+
+<meta charset="utf-8">
+<title>VIFI Protocol</title>
+<meta name="description" content="VIFI mvp">
+<meta name="author" content="">
+ 
+<!-- Mobile Specific Metas ================================================== 
+================================================== -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<link rel="shortcut icon" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<script>
+		if (window.screen.height==568) { // iPhone 4"
+		document.querySelector("meta[name=viewport]").content="width=320.1";
+		}
+    </script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- css -->
+<link rel="stylesheet" href="css/style.css">
+<!-- <link rel="stylesheet" href="js/portfolio/photoswipe.css"> -->
+ 
+<!-- Scripts -->
+<script src="todo/jq.js"></script>
+<script src="todo/jquerymobile/jquerymobile.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script> -->
+<!-- <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script> -->
+<script type="text/javascript" src="js/portfolio/klass.min.js"></script>
+<!-- <script type="text/javascript" src="js/portfolio/code.photoswipe.jquery-3.0.4.min.js"></script> -->
+<!-- <script src="js/slider/jquery.flexslider-min.js"></script> -->
+<!-- <script src="js/custom.js"></script> -->
+<script src="cordova.js"></script>
+</head>
+<body>
+<div data-role="page"> 
+  <!-- header -->
+  <div data-role="header" class="buttons" data-add-back-btn="true"> 
+    <div class="logo"></div>
+    <center>      
+  <small> <span data-icon="plus" data-iconpos="notext"></span> Secured by ViFi Bank grade Security.</small>
+    </center>
+  </div>
+  <!--/header --> 
+  
+  <!-- banner & title -->
+  <h2 class="pageTitle">Balance: NGN <span id="balance">0.00</span></h2>
+
+  <script>
+    if (localStorage.getItem('balance')=='' || localStorage.getItem('balance')<1) {
+		localStorage.setItem('balance',5000);	
+
+    //FCMB Wallet balance
+	}
+		$('span#balance').text(localStorage.getItem('balance'));
+  </script>
+  <!-- <div class="bannerContainer"> <img src="images/4.jpg" class="banner" alt=""> </div> -->
+  <div data-role="content" class="portfolio">
+    <ul id="gallery">
+      <li><a href="contactform.html" data-transition="slide" rel="external"><img src="js/portfolio/images/1s.png" alt="Send" /></a></li>
+      <li><a href="remit.html" data-transition="slide" rel="external"><img src="js/portfolio/images/2s.png" alt="Receive" /></a></li>
+      <li><a href="save.html" data-transition="slide" rel="external"><img src="js/portfolio/images/save.jpg" alt="Save" /></a></li>
+      <li><a href="todo/index.html" rel="external"><img src="js/portfolio/images/buy.jpg" alt="BUY" /></a></li>
+      <center>
+        <a href="scan/index.html" rel="external"><img src="js/portfolio/images/scan.png" alt="SCAN QR" width="40%"/></a> 
+    </center>
+    </ul>
+    <small>we automatically set the account balance to NGN 5000 by default</small>
+  </div>
+
+  
+<script>
+  var pageURL = $(location).attr("href");
+          alert(pageURL);
+</script>
+
+  <!-- /main content --> 
+ <!-- footer --
+  <div data-role="footer" class="footer">
+    <div data-role="navbar" class="navbar" data-grid="c">
+      <ul>
+        <li><a href="http://maps.google.com/" data-theme="c">Map</a></li>
+        <li><a href="videos.html" data-theme="c">Videos</a></li>
+        <li><a href="gallery.html" data-theme="c">Gallery</a></li>
+        <li><a href="services.html" data-theme="c">Services</a></li>
+      </ul>
+    </div>
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <div class="ui-bar ui-bar-e" style="height:120px">
+          <h3>Latest News</h3>
+          <ul>
+            <li class="lines"><a href="http://www.anarieldesign.com/my-store/" title=""  rel="nofollow">My Store</a></li>
+            <li class="lines"><a href="http://www.anarieldesign.com/my-store/" class=""  rel="nofollow">Latest News</a></li>
+            <li class="lines"><a href="https://creativemarket.com/anarieldesign/1356-Special-Bundle" class=""  rel="nofollow">Creative Market</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ui-block-b">
+        <div class="ui-bar ui-bar-e" style="height:120px">
+          <h3>Archives</h3>
+          <ul>
+            <li class="lines"><a href="#" title="">Latest News</a></li>
+            <li class="lines"><a href="#" class="">Portfolio News</a></li>
+            <li class="lines"><a href="#" class="">Responsive Theme</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /grid-b --
+    
+    <div id="copyright">
+      <p class="copyright">&copy; Copyright 2012. &quot;Trixy Mobile&quot; by <a href="http://www.anarieldesign.com/" rel="nofollow">Anariel Design</a>. All rights reserved.</p>
+    </div>
+  </div>
+  !-- /footer --> 
+</div>
+<!-- /page -->
+
+</body>
+</html>

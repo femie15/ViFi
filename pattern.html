@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+  <title>ViFi Pattern</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+
+  <link rel="stylesheet" type="text/css" href="includes/big_display_style.css">
+  <link rel="stylesheet" type="text/css" href="includes/middle_display_style.css">
+  <link rel="stylesheet" type="text/css" href="includes/small_display_style.css">
+  <script type="text/javascript" src="todo/jq.js"></script>
+  <!-- <script type="text/javascript" src="js/pat.js"></script> -->
+  <script type="text/javascript" src="js/pattern.js"></script>
+  <link href="css/pat.css"  rel="stylesheet" type="text/css" />
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() { display_pattern();});
+
+  function display_pattern()
+  {
+    if (localStorage.getItem('pat')!= null) {
+
+        document.getElementById("pattern_val").value=localStorage.getItem('pat');
+                sessionStorage.setItem('pat',localStorage.getItem('pat'));                
+            display_pattern2();
+
+          document.getElementById("pattern1_container").style.display="none";
+          document.getElementById("pattern2_container").style.display="block";          
+          document.getElementById("hh1").style.display="none";
+          document.getElementById("hh2").style.display="block";
+    
+    
+    }else{
+        var lock= new PatternLock('#pattern1',{
+            onDraw:function(pattern){
+                document.getElementById("pattern_val").value=lock.getPattern();
+                localStorage.setItem('pat',lock.getPattern());                
+                sessionStorage.setItem('pat', lock.getPattern());
+                          
+                display_pattern2();
+            }
+        });
+    } 
+    // else {
+    //     document.getElementById("pattern_val").value=localStorage.getItem('pat');
+    //             sessionStorage.setItem('pat',localStorage.getItem('pat'));                
+    //         display_pattern2();
+
+    //       document.getElementById("pattern1_container").style.display="none";
+    //       document.getElementById("pattern2_container").style.display="block";          
+    //       document.getElementById("hh1").style.display="none";
+    //       document.getElementById("hh2").style.display="block";
+    
+    // }//end
+   
+  }
+    
+  function hide_show_pattern()
+  {
+      if(document.getElementById("pattern_val").value!="")
+      {
+          document.getElementById("pattern1_container").style.display="none";
+          document.getElementById("pattern2_container").style.display="block";          
+          document.getElementById("hh1").style.display="none";
+          document.getElementById("hh2").style.display="block";
+          
+      }
+      else
+      {
+          alert("Please Set Pattern Lock");
+      }
+  }
+  
+  function display_pattern2()
+  {
+      var pattern_value=document.getElementById("pattern_val").value;
+      var lock= new PatternLock('#pattern2',{
+      onDraw:function(pattern)
+      {
+          lock.checkForPattern(pattern_value,function()
+          {
+              alert("Welcome to ViFi");
+              window.location.replace('index.html');
+          },
+          function()
+          {
+              alert("Pattern Lock Is Wrong");
+          });
+      }
+  });
+  }
+  </script>
+
+  <style>
+  body
+  {
+      text-align:center;
+      width:100%;
+      margin:0 auto;
+      padding:0px;
+      font-family:helvetica;
+      background-color:#051a58;
+  }
+  #wrapper
+  {
+      text-align:center;
+      /* margin:0 auto; */
+      padding:40px;
+      width:15%;
+      /* width:995px; */
+  }
+  h1
+  {
+      margin-top:50px;
+      color:white;
+      font-size:40px;
+  }
+  h1 p
+  {
+      font-size:14px;
+  }
+  .pattern_container
+  {
+      margin-top:20px;
+  }
+  .pattern_container p
+  {
+      margin:0px;
+      color:#ffffff;
+      font-size:12px;
+      font-weight:bold;
+  }
+  #pattern1,#pattern2
+  {
+      margin:auto;
+      /* margin-left:35%; */
+  }
+  #pattern1_container input[type="button"]
+  {
+      background:none;
+      border:none;
+      margin-top:10px;
+      border:1px solid #ffffff;
+      color:#ffffff;
+      width:210px;
+      margin-left:100%;
+      height:45px;
+      font-size:17px;
+  }
+  #pattern2_container, #hh2
+  {
+      display:none;
+  }
+  </style>
+  </head>
+  <body>
+  
+  <br>
+  
+  <p style="color: #ffffff;" id="hh1">Set Pattern Lock <br> (Ensure you set a pattern you can easily remember) </p>
+  <p style="color: #ffffff;" id="hh2">Open With Pattern Lock</p>
+  <div id="wrapper">
+  
+    <div id="pattern1_container" class="pattern_container">
+    <div id="pattern1">
+    </div>
+    <input type="button" value="Save Pattern Lock" onclick="hide_show_pattern();">
+    </div>
+    
+    
+   
+    <div id="pattern2_container" class="pattern_container">
+    <div id="pattern2">
+    </div>
+    </div>
+    
+    <input type="hidden" value="" id="pattern_val">
+
+  </div>
+  </body>
+  </html>
+  

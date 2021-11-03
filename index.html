@@ -33,9 +33,16 @@
 <script src="todo/jquerymobile/jquerymobile.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script> -->
 <!-- <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script> -->
+
+<script>
+  if (sessionStorage.getItem('pat')== null) {
+    window.location.replace('pattern.html');
+  }
+</script>
+
 <script type="text/javascript" src="js/portfolio/klass.min.js"></script>
 <!-- <script type="text/javascript" src="js/portfolio/code.photoswipe.jquery-3.0.4.min.js"></script> -->
-<!-- <script src="js/slider/jquery.flexslider-min.js"></script> -->
+<script src="js/slider/jquery.flexslider-min.js"></script>
 <!-- <script src="js/custom.js"></script> -->
 <script src="cordova.js"></script>
 </head>
@@ -60,6 +67,26 @@
     //FCMB Wallet balance
 	}
 		$('span#balance').text(localStorage.getItem('balance'));
+
+    function sound()
+  {
+    if (sessionStorage.getItem('sound')==null || sessionStorage.getItem('sound')=='on') {
+      sessionStorage.setItem('sound','off');	
+    alert('Sound is off');
+    document.getElementById("sound").src="images/on.png";
+    }else{
+      sessionStorage.setItem('sound','on');	
+    alert('Sound is on');
+
+    $('document').ready(function() {
+  const audio = new Audio("audio/welcome.mp3" );
+  audio.play();
+  });
+
+    document.getElementById("sound").src="images/off.png";
+    }
+
+  }
   </script>
   <!-- <div class="bannerContainer"> <img src="images/4.jpg" class="banner" alt=""> </div> -->
   <div data-role="content" class="portfolio">
@@ -68,18 +95,22 @@
       <li><a href="remit.html" data-transition="slide" rel="external"><img src="js/portfolio/images/2s.png" alt="Receive" /></a></li>
       <li><a href="save.html" data-transition="slide" rel="external"><img src="js/portfolio/images/save.jpg" alt="Save" /></a></li>
       <li><a href="todo/index.html" rel="external"><img src="js/portfolio/images/buy.jpg" alt="BUY" /></a></li>
-      <center>
+      <li>
         <a href="scan/index.html" rel="external"><img src="js/portfolio/images/scan.png" alt="SCAN QR" width="40%"/></a> 
-    </center>
+    </li> 
+    <li>
+      <a href="#" onclick="sound();"><img src="images/off.png" id="sound" alt="Sound" width="40%"/></a> 
+  </li>
+
     </ul>
     <small>we automatically set the account balance to NGN 5000 by default</small>
   </div>
 
   
-<script>
+<!-- <script>
   var pageURL = $(location).attr("href");
           alert(pageURL);
-</script>
+</script> -->
 
   <!-- /main content --> 
  <!-- footer --

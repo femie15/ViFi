@@ -260,18 +260,20 @@ let QrResult = function(onCloseCallback) {
     this.__onScanSuccess = function(decodedText, decodedResult) {
         noResultContainer.classList.add("hidden");
 
-        scanResultCodeType.innerText
-            = toFriendlyCodeType(decodedResult.result.format.formatName);
+scanResultCodeType.innerText = toFriendlyCodeType(decodedResult.result.format.formatName);
         scanResultText.innerText = decodedText;
         let codeType = detectType(decodedText);
 
         lastScan.text = decodedText;
         lastScan.type = codeType;
 
-        scanResultBadgeBody.innerText = codeType;
+scanResultBadgeBody.innerText = codeType;
         scanResultParsed.replaceChildren();
         scanResultParsed.appendChild(createParsedResult(decodedText, codeType));
         container.style.display = "block";
+
+        // var cha = localStorage.getItem('balance')+localStorage.getItem('topup');
+		// localStorage.setItem('balance', cha);	
 
         window.location.replace(decodedText);
     }

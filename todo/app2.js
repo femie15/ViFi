@@ -42,6 +42,8 @@ var App = {
 		localStorage.setItem('balance', cha);		
 		localStorage.removeItem('todoData');	
 
+		alert("Purchase of NGN" + localStorage.getItem('ttn') + ' worth of product(s) was completed');  
+
 		//start
 		$.ajax({ 
 			type:"POST",
@@ -158,7 +160,7 @@ if (status=='incomplete') {
 }
 		}		
 
-		if (localStorage.getItem('ttn')>=localStorage.getItem('balance')) {
+		if (localStorage.getItem('ttn')>=localStorage.getItem('balance') || localStorage.getItem('balance')<=999) {
 			// alert('You can not add more items due to insufficient balance');
 			$('#hd').hide();
 			$('#hd').css('visibility','hidden');

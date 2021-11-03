@@ -75,10 +75,9 @@
                 </div>
                 <div class="section">
                     <div class="image" id="scan-result-image"></div>
+                    <div id="scan-result-parsed"></div>
                     <div class="data">
                         <table id="result_table">
-                          
-                            
                             <tr>
                                 <td>
                                     <img class="action_image" id="action-share" src="../images/ajax-loader.gif" />
@@ -89,13 +88,21 @@
                         <table>
                             <tr>
                                 <td style="word-break: break-word">
-                                    <div id="scan-result-text"></div>
+                                    <div id="scan-result-text" hidden></div>                                   
+                                    <div id="scan-result-badge-body" hidden></div>                                   
+                                    
                                 </td>
                             </tr>
                         </table>
+                        
+                        <center>
                         <div id="body-footer">
                             <button id="scan-result-close">Close and scan another</button>
                         </div>
+                        <br> 
+                        Wiat for scanner detect your camera...
+                            <!-- <a href="https://femie15.github.io/scan/index.html#reader">If the scanner did not automatically start, <span style="color: rgb(23, 228, 33);"> Click here</span> and make sure your internet in on</a> -->
+                        </center>
                     </div>
                 </div>
             </div>

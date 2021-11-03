@@ -57,13 +57,15 @@
     if (localStorage.getItem('balance')=='' || localStorage.getItem('balance')<1) {
 		localStorage.setItem('balance',5000);	
 	}
-		$('span#balance').text(localStorage.getItem('balance'));
-      // location.reload(true);	
+		$('span#balance').text(localStorage.getItem('balance')); 
+
+    if (sessionStorage.getItem('sound')!=null && sessionStorage.getItem('sound')=='on') {
+        $('document').ready(function() {
+          const audio = new Audio("audio/send.mp3" );
+          audio.play();
+          });
+      }
   </script>
-  <!-- <h2 class="pageTitle"><span>Contact Form</span></h2> -->
-  <!-- social --
-  <div class="social"> <a href="#"><img src="images/social/facebook.png" alt="facebook"></a> <a href="#"><img src="images/social/twitter.png" alt="twitter"></a> <a href="#"><img src="images/social/google.png" alt="google"></a> <a href="#"><img src="images/social/dribbble.png" alt="dribble"></a> <a href="#"><img src="images/social/pinterest.png" alt="pintarest"></a> </div>
-  !-- /social -->
   
   <div data-role="content" class="contact">
     <hr class="blankseparator"/>
@@ -102,7 +104,9 @@
 </div>
 <!-- /page -->
 
-<script>  
+<!-- <audio src="audio/send.mp3" id="send"></audio> -->
+
+<script> 
   $('#contactForm form').submit(addTask);
   function addTask() {
     var newTitle = $('input#amt').val();  

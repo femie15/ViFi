@@ -84,6 +84,14 @@
     }
       $('span#savd').text(localStorage.getItem('save'));
         // location.reload(true);	
+
+  
+        if (sessionStorage.getItem('sound')!=null && sessionStorage.getItem('sound')=='on') {
+                  $('document').ready(function() {
+            const audio = new Audio("audio/save.mp3" );
+            audio.play();
+            });
+          }
     </script>
 
   </div>
@@ -100,6 +108,8 @@
     }else{
       var cha = parseInt(localStorage.getItem('balance'))-newTitle;
       localStorage.setItem('balance', cha);		
+      
+      alert('NGN' + newTitle +' was added to your mini-Vault.');
 
       if (localStorage.getItem('save')=='' || localStorage.getItem('save')<1) {
           localStorage.setItem('save',newTitle);
